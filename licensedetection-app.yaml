@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: licensedetection-app
+  namespace: ttt
+  labels:
+    app: licensedetection-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: licensedetection-app
+  template:
+    metadata:
+      labels:
+        app: licensedetection-app
+    spec:
+      containers:
+      - name: licensedetection-app
+        image: karthikbattaram/licensedetection-app:v9
+        ports:
+        - containerPort: 80
+          #env:
+          #- name: KEYCLOAK_HOST
+          #  value: "4.224.150.49"
+          #- name: KEYCLOAK_PORT
+          # value: "80"
+          #- name: KEYCLOAK_CLIENT_SECRET
+          # value: "BD52nJKNG3k869QpMIwuWtDbnA2hEhxn"
+          #- name: APP_HOST
+          # value: "4.224.112.144"
+          
+
